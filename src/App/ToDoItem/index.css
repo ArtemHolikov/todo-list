@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item:not(:first-child) {
+    padding-top: 15px;
+}
+
+.items {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}

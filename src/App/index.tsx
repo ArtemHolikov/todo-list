@@ -5,7 +5,9 @@ import { ToDoItem } from './ToDoItem';
 import { Header } from './Header';
 
 function App() {
-  const [list, setList] = useState<string[]>([]);
+  const storedList = localStorage.getItem('list');
+  const initialList = storedList ? JSON.parse(storedList) : [];
+  const [list, setList] = useState<string[]>(initialList);
 
   return (
     <div className="App">

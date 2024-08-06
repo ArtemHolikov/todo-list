@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css'
 
 const { v4: uuidv4 } = require('uuid');
@@ -9,20 +9,13 @@ interface Props {
 }
 
 export const ToDoItem = ({ list, setList }: Props) => {
-    useEffect(() => {
-        const savedList = localStorage.getItem('list');
-        if (savedList) {
-            setList(JSON.parse(savedList));
-        }
-    }, []);
 
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(list));
     }, [list]);
 
     const onDelete = (el: string) => {
-        const updatedList = list.filter((item) => el !== item);
-        setList(updatedList);
+        setList(list.filter((item) => el !== item));
     }
 
     return (
